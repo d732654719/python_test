@@ -1,0 +1,4 @@
+【2020-06-30_15:07:57】【INFO】【test2.py】【<module>】【日志信息】：一个info信息
+【2020-06-30_15:07:57】【WARNING】【test2.py】【<module>】【日志信息】：一个wanrning信息
+【2020-06-30_15:07:57】【ERROR】【test2.py】【<module>】【日志信息】：一个error信息
+【2020-06-30_15:07:57】【CRITICAL】【test2.py】【<module>】【日志信息】：一个critical信息

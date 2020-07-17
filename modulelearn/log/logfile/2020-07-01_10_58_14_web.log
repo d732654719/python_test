@@ -1,0 +1,4 @@
+weblog|INFO|2020-07-01 10:58:14|log.py|【日志信息】：一个info信息
+weblog|WARNING|2020-07-01 10:58:14|log.py|【日志信息】：一个wanrning信息
+weblog|ERROR|2020-07-01 10:58:14|log.py|【日志信息】：一个error信息
+weblog|CRITICAL|2020-07-01 10:58:14|log.py|【日志信息】：一个critical信息
