@@ -104,13 +104,7 @@ import time
 #
 # b=os.path.abspath(".")
 # print(b)
-
-flist = []
-for i in range(4):
-    def foo(x):
-        print(x+i)
-    flist.append(foo)
-for f in flist:
-    f(2)
-
-
+a='{a:"1"}'
+print(type(a))
+b=eval(a)
+print(type(b))
