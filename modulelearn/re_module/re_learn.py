@@ -6,6 +6,8 @@ import re
 # sp = re.split('[,a]',s)
 # print(sp)
 
-a="a+b"
-b =re.split("\+",a)
-print(b)
+a = []
+for i in range(1,10):
+    a[i]=1
+
+print(a)
