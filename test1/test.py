@@ -98,21 +98,8 @@ import random,string
 import time
 
 
-# log_time = time.strftime("%Y-%m-%d %H:%M:%S",time.localtime())
-# a = "logtime"+log_time
-# print(type(a))
-#
-# b=os.path.abspath(".")
-# print(b)
-# a='{a:"1"}'
-# print(type(a))
-# b=eval(a)
-# print(type(b))
-# print('fsd\\nfds')
-# print("\\n")
-# a = re.search('\n', 'fsd\nfds')
-# print(a)
-# b = a.group()
-# print('a{}c'.format(b))
-# -*- coding:utf-8 -*-
+a="AB{$..ed}"
+b=a.replace("{$..ed}","ww")
+print(a)
+print(b)
 

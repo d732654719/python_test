@@ -21,7 +21,7 @@ class do_excel:
                         dict[title_data[j-1]] = sh.cell(row=i, column=j).value
             test_data.append(dict)
         return test_data
-    def read_config(self,sheetname):
+    def read_config(self):
         test_data = self.read_sheet("测试用例")
         test_cof = self.read_sheet("配置")[0]
         for case in test_data:
