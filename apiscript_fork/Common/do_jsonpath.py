@@ -16,7 +16,7 @@ def value_by_jsonpath(json_obj,expr):
         else:
             result = value[0]
     else:
-        logging.error("你的查找这可能是None或者是false，或查看你的jsonpath是否正确")
+        logging.error("你的查找值可能是None或者是false，或查看你的jsonpath是否正确")
         result = value
     return result
 
@@ -41,8 +41,7 @@ def repl_jsonpth(repl,dict_json):
 
 
 if __name__ == '__main__':
-    data = {"sort": True, "data": False, "success": None, "code": "sb9999",
-            "ids": [["abc"], ["ttt"]], "user": {"name": "tom", "age": 23}}
-    rep = '{"username":"{$ids[0][0]}","password":"{$.code}","clientId":"visual"}'
+    data = {'access_token': 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb3VudHJ5X2NvZGUiOiJKUCIsImxvY2FsZV9jb2RlIjoiZW5fVVMiLCJ1c2VyX25hbWUiOiJhbGV4Iiwic2NvcGUiOlsiZm9vIiwicmVhZCIsIndyaXRlIl0sImFwcGxpY2F0aW9uX2NvZGUiOiJJREVBUyIsImV4cCI6MTU5NjU0Nzg1NywidXNlcmFjY291bnRfaWQiOiJVQUNfMTAwNDczIiwianRpIjoiNzVlZGM5MGUtMGQwNS00ZWFkLThlNTgtMjQxZjQ4Njk4MDliIiwiY2xpZW50X2lkIjoiY2xpZW50IiwidGVuYW50X2NvZGUiOiJTSEFSUCJ9.O2kDxrbdcr28RH9BAldtfwGgyK3ebQ9UDNOKb5uWYFDF2cNQcQwF3j6NdkgUAwH9-H1tXz8rRKflWsG5xm1X0ya9vUJzNRBP2hpMfXJDQAmiHcSjluC4o0ene84xNrdb8pBuh1-gefl7ykWIQbl5FUmYaThRFwVoLS1t_qvh8rKMqKZ_FXrdLQpdjNE0xeNgEY0vGLA2CaZvdF3B1lMn4g99cQCPxguBZ0fgft1aGuPBZVMdnOMzJaC2D40TZr2srCDhNFtUr0aRLQ9GLDvJB-iPZJWRywMHSw3Hjxwr_U3BXSYHdxsS8d5jhf8Z77Cw0x44wWI9PBObq17HmvalkQ', 'token_type': 'bearer', 'refresh_token': 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb3VudHJ5X2NvZGUiOiJKUCIsImxvY2FsZV9jb2RlIjoiZW5fVVMiLCJ1c2VyX25hbWUiOiJhbGV4Iiwic2NvcGUiOlsiZm9vIiwicmVhZCIsIndyaXRlIl0sImF0aSI6Ijc1ZWRjOTBlLTBkMDUtNGVhZC04ZTU4LTI0MWY0ODY5ODA5YiIsImFwcGxpY2F0aW9uX2NvZGUiOiJJREVBUyIsImV4cCI6MTU5NjU0Nzg1NywidXNlcmFjY291bnRfaWQiOiJVQUNfMTAwNDczIiwianRpIjoiYzBiYWM3NjItNzM5Ny00ZmMyLWE2NTItMDNmYjdiNjBkNWE0IiwiY2xpZW50X2lkIjoiY2xpZW50IiwidGVuYW50X2NvZGUiOiJTSEFSUCJ9.VIVmF4oWQv78U1ZpQUaVAfwdCAN3aYn7cCTLCgUn-jVuzprMN62FQnzGPabYNVhchJdXy_2L9Jf5Cz_iVUAvLjGDXKoBM9cA9K_THoNSyPcqsF_fphLsdPf306jfHlsLma1c-N77WwF85XRa-kEETjeuAtyfwul6BZe7HDPNC-sHOs_qFRt2pgYxMThzKNPlZPRByQnvgBJY8dPSbk3-GXUIQcjzAVCqT7_aMbC5bF1pa1MtgMr_VdlRYC8nkEQsyjyvjL_9nY2YO_QzJa_EWzVslMSNfUCF-7JIMfl9HcvH0lLou-z4PE2KxeuWZ8I-PvfW3moL6yYk-cw7-92fdg', 'expires_in': 35999, 'scope': 'foo read write', 'tenant_code': 'SHARP', 'useraccount_id': 'UAC_100473', 'application_code': 'IDEAS', 'locale_code': 'en_US', 'country_code': 'JP', 'jti': '75edc90e-0d05-4ead-8e58-241f4869809b'}
+    rep = '"{$.token_type}"=="bearer"'
     result = repl_jsonpth(rep, data)
     print(result)
