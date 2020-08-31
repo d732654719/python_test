@@ -97,6 +97,5 @@ import random,string
 #     print(i)
 import time
 
-a={"a":"1","a":"2"}
-print(a)
-
+def a(aa,bb):
+    v=aa+bb
