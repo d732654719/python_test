@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3d4d8729-6ed9-4fb1-9c35-fda9ddfb7b66" name="Default Changelist" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="3d4d8729-6ed9-4fb1-9c35-fda9ddfb7b66" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../apiscript_fork/log/2020-08-04 10_43_04.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../apiscript_fork/log/2020-08-04 10_46_54.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../apiscript_fork/log/2020-08-04 10_49_22.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../apiscript_fork/log/2020-08-04 10_53_02.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../apiscript_fork/log/2020-08-04 11_30_56.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../apiscript_fork/log/2020-08-04 11_37_07.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../apiscript_fork/log/2020-08-04 11_39_34.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../apiscript_fork/log/2020-08-04 11_54_13.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../apiscript_fork/log/2020-08-04 13_40_59.log" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,22 +24,21 @@
       </list>
     </option>
   </component>
-  <component name="ProjectId" id="1UbMB6F2AVfIYKFE3CJtG80Q1vq" />
-  <component name="PropertiesComponent">
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+  <component name="ProjectId" id="1UbMB6F2AVfIYKFE3CJtG80Q1vq" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager">
     <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -78,7 +86,10 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/test1$test.coverage" NAME="test Coverage Results" MODIFIED="1575621453887" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  <component name="WindowStateProjectService">
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1597642183426">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1597642183426" />
   </component>
 </project>

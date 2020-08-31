@@ -97,9 +97,6 @@ import random,string
 #     print(i)
 import time
 
-
-a="AB{$..ed}"
-b=a.replace("{$..ed}","ww")
+a={"a":"1","a":"2"}
 print(a)
-print(b)
 

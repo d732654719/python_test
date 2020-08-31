@@ -38,12 +38,13 @@ class TestHttpRequest(unittest.TestCase):
             global_data.update(eval(result))
             logging.info("全局变量:{}".format(global_data))
         # 替换断言表达式中的实际结果
-        real_assert_exp = repl_jsonpth(json.dumps(data["断言"]), response)
+        real_assert_exp = eval(repl_jsonpth(json.dumps(data["断言"]), response))
         logging.info("断言表达式为：{}".format(real_assert_exp))
         # 断言
         try:
+
             for i in real_assert_exp:
-                self.assertTrue(i)
+                self.assertTrue(eval(i))
         except AssertionError as e:
             logging.error("断言错误，实际结果与预期结果不符")
             raise e
