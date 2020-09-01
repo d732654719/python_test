@@ -1,0 +1,24 @@
+[INFO]-[2020-08-04 10:49:22,168]-日志信息:正在执行：第1条用例，
+[INFO]-[2020-08-04 10:49:22,168]-日志信息:替换前请求地址：https://sharpsit.jusdaglobal.com/api/login,替换前请求参数：{"grant_type":"password","username":"alex","password":"948542b99a45de7ced6b6df6830dbb0a","tenant_code":"SHARP"},
+[INFO]-[2020-08-04 10:49:22,168]-日志信息:替换前请求文件参数：''，请求头：{"content-type":"application/x-www-form-urlencoded;charset=UTF-8","authorization":"Basic Y2xpZW50OjYyNjA4ZTA4YWRjMjlhOGQ2ZGJjOTc1NGU2NTlmMTI1"}
+[INFO]-[2020-08-04 10:49:22,168]-日志信息:替换后请求地址：https://sharpsit.jusdaglobal.com/api/login,请求参数：{'grant_type': 'password', 'username': 'alex', 'password': '948542b99a45de7ced6b6df6830dbb0a', 'tenant_code': 'SHARP'},
+[INFO]-[2020-08-04 10:49:22,171]-日志信息:替换后请求文件参数：，请求头：{'content-type': 'application/x-www-form-urlencoded;charset=UTF-8', 'authorization': 'Basic Y2xpZW50OjYyNjA4ZTA4YWRjMjlhOGQ2ZGJjOTc1NGU2NTlmMTI1'}
+[DEBUG]-[2020-08-04 10:49:22,180]-日志信息:Starting new HTTPS connection (1): sharpsit.jusdaglobal.com:443
+[DEBUG]-[2020-08-04 10:49:22,377]-日志信息:https://sharpsit.jusdaglobal.com:443 "POST /api/login?grant_type=password&username=alex&password=948542b99a45de7ced6b6df6830dbb0a&tenant_code=SHARP HTTP/1.1" 200 None
+[INFO]-[2020-08-04 10:49:22,382]-日志信息:响应结果是：<Response [200]>
+[ERROR]-[2020-08-04 10:49:22,383]-日志信息:你的查找值可能是None或者是false，或查看你的jsonpath是否正确
+[ERROR]-[2020-08-04 10:49:22,384]-日志信息:excel中被替换数据中的jsonpath格式可能有问题，请检查
+[INFO]-[2020-08-04 10:49:22,384]-日志信息:全局变量:{'token_type': '{$.token_type}', 'access_token': '{$.access_token}'}
+[ERROR]-[2020-08-04 10:49:22,384]-日志信息:excel中被替换数据中的jsonpath格式可能有问题，请检查
+[INFO]-[2020-08-04 10:49:22,384]-日志信息:正在执行：第2条用例，
+[INFO]-[2020-08-04 10:49:22,385]-日志信息:替换前请求地址：https://sharpsit.jusdaglobal.com/api/purchase-orders,替换前请求参数：{"accept":"application/json,text/plain,*/*","authorization":"{$.token_type} {$.access_token}"},
+[INFO]-[2020-08-04 10:49:22,385]-日志信息:替换前请求文件参数：''，请求头：{"page":"-1","size":"20","sort":"poNo"}
+[ERROR]-[2020-08-04 10:49:22,385]-日志信息:你的查找值可能是None或者是false，或查看你的jsonpath是否正确
+[ERROR]-[2020-08-04 10:49:22,385]-日志信息:excel中被替换数据中的jsonpath格式可能有问题，请检查
+[INFO]-[2020-08-04 10:49:22,385]-日志信息:替换后请求地址：https://sharpsit.jusdaglobal.com/api/purchase-orders,请求参数：{'accept': 'application/json,text/plain,*/*', 'authorization': '{$.token_type} {$.access_token}'},
+[INFO]-[2020-08-04 10:49:22,385]-日志信息:替换后请求文件参数：，请求头：{'page': '-1', 'size': '20', 'sort': 'poNo'}
+[DEBUG]-[2020-08-04 10:49:22,390]-日志信息:Starting new HTTPS connection (1): sharpsit.jusdaglobal.com:443
+[DEBUG]-[2020-08-04 10:49:22,579]-日志信息:https://sharpsit.jusdaglobal.com:443 "GET /api/purchase-orders?accept=application%2Fjson%2Ctext%2Fplain%2C%2A%2F%2A&authorization=%7B%24.token_type%7D+%7B%24.access_token%7D HTTP/1.1" 404 None
+[INFO]-[2020-08-04 10:49:22,583]-日志信息:响应结果是：<Response [404]>
+[ERROR]-[2020-08-04 10:49:22,583]-日志信息:你的查找值可能是None或者是false，或查看你的jsonpath是否正确
+[ERROR]-[2020-08-04 10:49:22,584]-日志信息:excel中被替换数据中的jsonpath格式可能有问题，请检查
