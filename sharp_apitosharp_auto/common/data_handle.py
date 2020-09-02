@@ -60,6 +60,6 @@ def gener_complete_deli_list():
     return comple_list
 
 if __name__ == '__main__':
-    a=gener_complete_sa_list()
+    a=gener_complete_deli_list()
     print(a)
         

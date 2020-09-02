@@ -1,1 +1,16 @@
-raise Exception
+# a="123452317"
+# print(a[-1])
+l = [
+            ['GK30 ', '2020082s8', 'NE ', 'S115977', ' ', '123x', ' rw21'],
+            ['SAHD', ' ', '0000', ' abuse ']
+        ]
+# 处理原生的切割数据，使字符串尾部的空格去掉
+a = []
+for i in range(0,len(l)):
+    for j in range(0,len(l[i])):
+        if l[i][j].isspace():
+            continue
+        else:
+            l[i][j]=l[i][j].rstrip()
+
+print(l)
