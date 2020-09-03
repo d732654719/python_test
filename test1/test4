@@ -54,43 +54,17 @@
 #         else:
 #             print("wrong,该行第{}个字段出错，内容：'{}'".format(i + 1, a[i]))
 
-
-import unittest
-class test_sample(unittest.TestCase):
-    # a=['GK30', '20200828', 'NE', 'S115977   ', ' ', ' ']
-    # assert_a = [["mix", "F"],
-    #            ["num", "F"],
-    #            ["letter", "F"],
-    #             ["mix", "F"],
-    #              ["mix", "T"],
-    #             ["num", "F"]]
-
-    def test_1(self):
-        a = ['GK30', '20200828', 'NE', 'S115977   ', ' ', ' ']
-        assert_a = [["mix", "F"],
-                    ["num", "F"],
-                    ["letter", "F"],
-                    ["mix", "F"],
-                    ["mix", "T"],
-                    ["num", "F"]]
-        for i in range(0, len(a)):
-
-            #是否允许为空为第一层
-            sign=""
-            if a[i].isspace():
-                assert assert_a[i][1] == "T"
-
-            if a[i].isdigit():
-                sign = "num"
-            elif a[i].isalpha():
-                sign = "letter"
-            elif a[i].isalnum():
-                sign = "mix"
-
-            assert sign == assert_a[i][0]
-
-
+# import time
+# def is_valid_date(str):
+#   '''判断是否是一个有效的日期字符串'''
+#   try:
+#     time.strptime(str, "%Y%m%d")
+#     return True
+#   except:
+#     return False
+# print(is_valid_date('20200839'))
 
 # assert_result(a,assert_a)
+while
 
 

@@ -1,16 +1,60 @@
 # a="123452317"
 # print(a[-1])
-l = [
-            ['GK30 ', '2020082s8', 'NE ', 'S115977', ' ', '123x', ' rw21'],
-            ['SAHD', ' ', '0000', ' abuse ']
-        ]
-# 处理原生的切割数据，使字符串尾部的空格去掉
-a = []
-for i in range(0,len(l)):
-    for j in range(0,len(l[i])):
-        if l[i][j].isspace():
-            continue
-        else:
-            l[i][j]=l[i][j].rstrip()
+# l = [
+#             ['GK30 ', '2020082s8', 'NE ', 'S115977', ' ', '123x', ' rw21'],
+#             ['SAHD', ' ', '0000', ' abuse ']
+#         ]
+import re
+#定义一个标志位P.属于P的只能是小数。再定义一个标志位+，属于只能是123+091这样的数据
 
-print(l)
+# s = a.split(".")
+# print(s)
+import logging
+
+assert_a = [
+    ("m", "T", "GK30"), ("m", "T"), ("m", "T"), ("n", "T"), ("m", "F"), ("n", "F"), ("m", "T")
+]
+# a="00000.1"
+# pass_params = 0
+# if "." in a:
+#     s = a.split(".")
+#     count=len(s)
+#     if count > 2 or count < 2:
+#         logging.error("小数点错误")
+#     else:
+#         real_count=0
+#         for x in s:
+#             if x.isdigit():
+#                 real_count+=1
+#         if real_count== 2:
+#             pass_params +=1
+#         else:
+#             logging.error("错误")
+# print(pass_params)
+
+a="00+00+01"
+sign=''
+if "+" in a:
+    s = a.split("+")
+    count=len(s)
+    if count > 2 or count < 2:
+        sign = 'm'
+    else:
+        real_count=0
+        for x in s:
+            if x.isdigit():
+                real_count+=1
+        if real_count== 2:
+            sign='+'
+        else:
+            sign='m'
+print(sign)
+
+
+
+
+
+
+
+
+
