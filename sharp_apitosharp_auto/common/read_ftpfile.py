@@ -12,7 +12,7 @@ deli_file_path = os.path.join(deli_dir_path, deli_filename)
 
 def read_sa_file():
     
-    with open(sa_file_path,"r") as file:
+    with open(sa_file_path,"r" ,encoding="utf-8") as file:
         lines = file.readlines()
         # print(lines)
         return(lines)
@@ -28,4 +28,5 @@ def read_deli_file():
 
 
 if __name__ == '__main__':
-    print(read_deli_file())
+    print(read_sa_file())
+

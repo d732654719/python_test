@@ -9,46 +9,41 @@ import re
 
 # s = a.split(".")
 # print(s)
-import logging
 
-assert_a = [
-    ("m", "T", "GK30"), ("m", "T"), ("m", "T"), ("n", "T"), ("m", "F"), ("n", "F"), ("m", "T")
-]
-# a="00000.1"
-# pass_params = 0
-# if "." in a:
-#     s = a.split(".")
-#     count=len(s)
-#     if count > 2 or count < 2:
-#         logging.error("小数点错误")
-#     else:
-#         real_count=0
-#         for x in s:
-#             if x.isdigit():
-#                 real_count+=1
-#         if real_count== 2:
-#             pass_params +=1
-#         else:
-#             logging.error("错误")
-# print(pass_params)
 
-a="00+00+01"
-sign=''
-if "+" in a:
-    s = a.split("+")
-    count=len(s)
-    if count > 2 or count < 2:
+
+import time
+def is_valid_date(str):
+    '''判断是否是一个有效的日期字符串'''
+    if len(str) == 8:
+        try:
+            time.strptime(str, "%Y%m%d")
+            return True
+        except:
+            return False
+    else:
+        return False
+def count_after_point(str):
+    """ 根据assert_stand里规定的小数位数，判断str是否正确"""
+
+    s = str.split(".")
+    count = len(s)
+    if count != 2:
         sign = 'm'
     else:
-        real_count=0
+        real_count = 0
         for x in s:
             if x.isdigit():
-                real_count+=1
-        if real_count== 2:
-            sign='+'
+                real_count += 1
+        if real_count == 2:
+            sign='p{}'.format(len(s[1]))
         else:
-            sign='m'
-print(sign)
+            sign="m"
+    return sign
+
+str='SA02100010001        16024618226         NEH39396206          000000000000000000000000002005260000031508160FIH(HONG K\n'
+list = ['SA02', '1', '0001', '0001', ' ', '       ', '16024618226         ', 'NEH39396206         ', ' ', '0000000000000', '0000000000000', '200526', '0000031508160', 'FIH(HONG K', '\n', '']
+
 
 
 
