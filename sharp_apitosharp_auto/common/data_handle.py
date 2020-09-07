@@ -1,5 +1,5 @@
 from common.read_ftpfile import read_sa_file,read_deli_file
-
+import re
 stand_sa = {
     "SAHD ": [4, 1, 4, 4, 5, 6, 6, 5, 6, 6, 6],
     "SA021": [4, 1, 4, 4, 1, 7, 20, 20, 1, 13, 13, 6, 13, 10, 10, 1],
@@ -18,6 +18,27 @@ stand_deli = {
              3, 8, 8, 1, 40, 40, 1, 25, 1, 7, 5, 8, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 10, 8, 8, 8, 10, 18, 18, 18, 18,
              18, 18, 18, 18, 18, 18, 3, 18, 4, 2, 8]}
 
+def findall_2byte(s,cut_len):
+    '''
+    查找字符串中的所有中日，中文标点符号，将切片长度剪掉等长
+    :param s: 待查找字符串
+    :return: 处理后的切片长度
+    '''
+
+    s_after_math = re.compile('[\u4e00-\u9fff\u30a0-\u30ff\u3040-\u309f\u3000-\u303f\ufb00-\ufffd]+').findall(s)
+    if s_after_math is not None:
+        print(s_after_math)
+        leng = 0
+        for i in s_after_math:
+            leng += len(i)
+
+        cut_len=cut_len-leng
+        print("切割长度：{},切割后长度{}".format(leng,cut_len))
+        return cut_len
+    else:
+
+        print("不需要切：{}".format(cut_len))
+        return cut_len
 
 
 # 处理模块,切割后的内容放在列表中，待做判定
@@ -43,10 +64,13 @@ def deli_after_split(data_choosed):
     for i in range(0, len(stand_deli[flag])):
         length = stand_deli[flag][i]
         start_no = 0
+
+        if i == 69:
+            length=findall_2byte(read_deli_file()[0],stand_deli[flag][69])
+            stand_deli[flag][69] =length
         if i >= 1:
             for j in range(0, i):
                 start_no += stand_deli[flag][j]
-
         data_split_result.append(data_choosed[(start_no):(start_no + length)])
     return data_split_result
 
@@ -62,6 +86,7 @@ def gener_complete_deli_list():
     return comple_list
 
 if __name__ == '__main__':
-    a=gener_complete_sa_list()
+    print(read_deli_file()[0])
+    a=gener_complete_deli_list()
     print(a)
         

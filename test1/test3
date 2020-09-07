@@ -41,8 +41,41 @@ def count_after_point(str):
             sign="m"
     return sign
 
-str='SA02100010001        16024618226         NEH39396206          000000000000000000000000002005260000031508160FIH(HONG K\n'
-list = ['SA02', '1', '0001', '0001', ' ', '       ', '16024618226         ', 'NEH39396206         ', ' ', '0000000000000', '0000000000000', '200526', '0000031508160', 'FIH(HONG K', '\n', '']
+def is_valid_time(str):
+    '''判断是否是一个有效的日期字符串'''
+    if len(str) == 6:
+        try:
+            time.strptime(str, "%H%M%S")
+            return True
+        except:
+            return False
+    else:
+        return False
+
+import re
+
+def findall_2byte(s,kaishi):
+    '''
+    查找字符串中的所有中日，中文标点符号，将切片长度剪掉等长
+    :param s: 待查找字符串
+    :return: list
+    '''
+
+    s_after_math = re.compile('[\u4e00-\u9fff\u30a0-\u30ff\u3040-\u309f\u3000-\u303f\ufb00-\ufffd]+').findall(s)
+    if s_after_math is not None:
+        print(s_after_math)
+        leng = 0
+        for i in s_after_math:
+            leng += len(i)
+        print(leng)
+        kaishi=kaishi-leng
+    print(kaishi)
+    return kaishi
+if __name__ == '__main__':
+    b = findall_2byte("海外生産完成品                          SHA",40)
+    # print(b)
+    # a="（通シ）サービス企画センター "+" "*8
+    # print(len(a))
 
 
 

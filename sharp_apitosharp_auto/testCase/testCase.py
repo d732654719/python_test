@@ -3,7 +3,7 @@ import unittest
 from common.data_handle import gener_complete_sa_list, gener_complete_deli_list
 import logging
 from common.assert_stand import *
-
+logging.basicConfig(level=logging.INFO)
 class ftp_test(unittest.TestCase):
 
     def test_deli_sample(self):
@@ -80,23 +80,17 @@ class ftp_test(unittest.TestCase):
         # 判断是否所有字段正确，返回一个布尔值，传给testcase做判断
         if all_params == pass_params:
             assert True
+            logging.info("所有字段验证通过")
         else:
             logging.error("通过字段：{}".format(pass_params))
             logging.error("共有{}个字段，有{}个字段出错".format(all_params, (all_params - pass_params)))
             assert False
 
     def test_sa_sample(self):
-        a = [
-            ['SA02', '1', '0001', '0001', ' ', '       ', '16024618226         '],
-            ['SA02', '2', '0001', '0002'],
-            ['SA02', '1', '0001', '0001', ' ', '       ', '16024618226         '],
-        ]
-
+        # 获取按字段分割后的存在列表中的sa数据
+        a = gener_complete_sa_list()
         # T代表必填
-        assert_a = {
-            "SA021":[("m", "T", "SA02"), ("m", "T", "1"), ("n", "T"), ("n", "T"), ("m", "F"), ("n", "F"), ("n", "T")],
-            "SA022":[("m", "T","SA02"), ("m", "T","2"), ("n", "T"), ("n", "T")]
-        }
+        assert_a = assert_sa
         # 处理原生的切割数据，使字符串尾部的空格去掉
         for i in range(0, len(a)):
             for j in range(0, len(a[i])):
@@ -106,6 +100,7 @@ class ftp_test(unittest.TestCase):
                     a[i][j] = a[i][j].rstrip()
         all_params = 0
         for i in a:
+            
             all_params += len(i)
         pass_params = 0
         # 遍历所有字段
@@ -117,39 +112,36 @@ class ftp_test(unittest.TestCase):
                 # 是否允许为空为第一个判断
                 if a[i][j].isspace():
                     if assert_a[data_head][j][1] == "T":
-                        logging.error("错误,出错行头是:'{}',该行第{}个字段出错,不能为空,内容:'{}'".format(a[i][0], j + 1, a[i][j]))
+                        logging.error("错误,文件的第{}行,出错行头是:'{}',该行第{}个字段出错,不能为空,内容:'{}'".format(i+1,a[i][0], j + 1, a[i][j]))
                     else:
                         pass_params += 1
                     continue
                 # 判断字符打头是否是空
                 if a[i][j][0] == " " and a[i][j][-1] != " ":
-                    logging.error("错误,出错行头是:'{}',第{}个字段出错,字段开头不能为空,可能该行有错位,内容:'{}'".format(a[i][0], j + 1, a[i][j]))
+                    logging.error("错误,文件的第{}行,出错行头是:'{}',第{}个字段出错,字段开头不能为空,可能该行有错位,内容:'{}'".format(i+1,a[i][0], j + 1, a[i][j]))
                     continue
                 # 判断固定值是否正确
                 if len(assert_a[data_head][j]) == 3:
                     if assert_a[data_head][j][2] == a[i][j]:
                         pass_params += 1
                     else:
-                        logging.error("错误,出错行头是:'{}',该行第{}个字段出错,固定值值出错,内容:'{}'".format(a[i][0], j + 1, a[i][j]))
+                        logging.error("错误,文件的第{}行,出错行头是:'{}',该行第{}个字段出错,固定值值出错,内容:'{}'".format(i+1,a[i][0], j + 1, a[i][j]))
                     continue
 
                 # 判断字符的类型是否正确
                 sign = ""
                 if a[i][j].isdigit():
-                    if is_valid_date(a[i][j]):
-                        sign = "d"
-                    else:
-                        sign = "n"
+                    sign=int_data_sort(a[i][j])
                 else:
                     sign = "m"
-                if sign in assert_a[data_head][j][0]:
+                if sign in assert_a[data_head][j][0] or assert_a[data_head][j][0] in sign:
                     pass_params += 1
                 else:
-                    logging.error("错误,出错行头是:'{}',第{}个字段出错,字段类型错误,内容:'{}'".format(a[i][0], j + 1, a[i][j]))
+                    logging.error("错误,文件的第{}行，出错行头是：'{}'，第{}个字段出错，字段实际类型={},字段预期类型={},字段内容：'{}'".format(i+1, a[i][0]+a[i][1], j + 1, sign, assert_a[data_head][j][0],a[i][j]))
 
         # 判断是否所有字段正确，返回一个布尔值，传给testcase做判断
         if all_params == pass_params:
-            logging.error("字段全部通过")
+            logging.info("所有字段验证通过")
             assert True
         else:
             logging.error("通过字段：{}".format(pass_params))
