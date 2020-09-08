@@ -27,19 +27,16 @@ def findall_2byte(s,cut_len):
 
     s_after_math = re.compile('[\u4e00-\u9fff\u30a0-\u30ff\u3040-\u309f\u3000-\u303f\ufb00-\ufffd]+').findall(s)
     if s_after_math is not None:
-        print(s_after_math)
+        # print(s_after_math)
         leng = 0
         for i in s_after_math:
             leng += len(i)
-
-        cut_len=cut_len-leng
-        print("切割长度：{},切割后长度{}".format(leng,cut_len))
+        cut_len = cut_len-leng
+        # print("切割长度：{},切割后长度{}".format(leng,cut_len))
         return cut_len
     else:
-
-        print("不需要切：{}".format(cut_len))
+        # print("不需要切：{}".format(cut_len))
         return cut_len
-
 
 # 处理模块,切割后的内容放在列表中，待做判定
 def sa_after_split(data_choosed):
@@ -66,12 +63,13 @@ def deli_after_split(data_choosed):
         start_no = 0
 
         if i == 69:
-            length=findall_2byte(read_deli_file()[0],stand_deli[flag][69])
+            length=findall_2byte(data_choosed,stand_deli[flag][69])
             stand_deli[flag][69] =length
         if i >= 1:
             for j in range(0, i):
                 start_no += stand_deli[flag][j]
         data_split_result.append(data_choosed[(start_no):(start_no + length)])
+
     return data_split_result
 
 def gener_complete_sa_list():
@@ -81,12 +79,19 @@ def gener_complete_sa_list():
         complete_sa_list.append(sa_after_split(i))
     return complete_sa_list
 
-def gener_complete_deli_list():
+def gener_complete_deli1_list():
     comple_list=deli_after_split(read_deli_file()[0])
     return comple_list
 
+def gener_complete_deli_list():
+    complete_deli_list = []
+    datalist = read_deli_file()
+    for i in datalist:
+        complete_deli_list.append(deli_after_split(i))
+        stand_deli["GK30"][69] = 40
+    return complete_deli_list
+
 if __name__ == '__main__':
-    print(read_deli_file()[0])
-    a=gener_complete_deli_list()
+    a = gener_complete_deli_list()
     print(a)
         
