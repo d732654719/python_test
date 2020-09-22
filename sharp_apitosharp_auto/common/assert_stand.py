@@ -46,9 +46,9 @@ def count_after_point(str):
             if x.isdigit():
                 real_count += 1
         if real_count == 2:
-            sign='p{}'.format(len(s[1]))
+            sign = 'p{}'.format(len(s[1]))
         else:
-            sign="m"
+            sign = "m"
     return sign
 
 def int_data_sort(str):
@@ -64,6 +64,7 @@ def int_data_sort(str):
     else:
         sign = "n"
     return sign
+# 判断字符的类型是否正确,标志位：n:除日期外数字,d:日期,p:带小数点数字,+:数字加中间的+,+n:+加数字,m:任意
 assert_deli = [
     ('m', 'T', 'GK30'),
     ('d', 'T'),
@@ -171,7 +172,7 @@ assert_deli = [
     ('m', 'T'),
     ('p6', 'T'),
     ('m', 'T','GK30'),
-    ('mn', 'T'),
+    ('m', 'T'),
     ('d', 'T')
 
 ]
