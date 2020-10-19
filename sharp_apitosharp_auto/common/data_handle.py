@@ -155,4 +155,4 @@ def gener_complete_deli_list():
 
 
 if __name__ == '__main__':
-    print(saLineslength_aseert())
+    print(gener_complete_deli_list())

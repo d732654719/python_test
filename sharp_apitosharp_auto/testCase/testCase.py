@@ -61,10 +61,12 @@ class ftp_test(unittest.TestCase):
                     pass_params += 1
                     continue
                 if a[i][j].isdigit():
-                    if is_valid_date(a[i][j]):
-                        sign = "d"
-                    else:
-                        sign = "n"
+                    sign = 'n'
+                    if sign in assert_a[j][0]:
+                        pass_params += 1
+                        continue
+                    elif is_valid_date(a[i][j]):
+                        sign = 'd'
 
                 # 判断段小数点数字是否正确
                 elif "." in a[i][j]:
@@ -83,7 +85,7 @@ class ftp_test(unittest.TestCase):
                                 real_count += 1
                         if real_count == 2:
                             sign = '+'
-                        elif real_count == 1 and s[0]=='':
+                        elif real_count == 1 and s[0] == '':
                             sign = '+n'
                         else:
                             sign = 'm'
@@ -118,13 +120,12 @@ class ftp_test(unittest.TestCase):
                     a[i][j] = a[i][j].rstrip()
         all_params = 0
         for i in a:
-            
             all_params += len(i)
         pass_params = 0
         # 遍历所有字段
         for i in range(0, len(a)):
             # 结合分割数据的0,1位，当做匹配断言标准的条件
-            data_head=a[i][0]+a[i][1]
+            data_head = a[i][0]+a[i][1]
 
             for j in range(0, len(a[i])):
                 # 是否允许为空为第一个判断
@@ -152,7 +153,18 @@ class ftp_test(unittest.TestCase):
                 # 判断字符的类型是否正确
 
                 if a[i][j].isdigit():
-                    sign = int_data_sort(a[i][j])
+                    sign = 'n'
+                    if sign in assert_a[data_head][j][0]:
+                        pass_params += 1
+                        continue
+                    # elif is_valid_date(a[i][j]):
+                    #     sign = "d"
+                    elif is_valid_time(a[i][j]) and is_valid_shortdate(a[i][j]):
+                        sign = "c,d"
+                    elif is_valid_time(a[i][j]):
+                        sign = "c"
+                    elif is_valid_shortdate(a[i][j]):
+                        sign = "d"
                 else:
                     sign = "m"
                 if sign in assert_a[data_head][j][0] or assert_a[data_head][j][0] in sign:
@@ -168,3 +180,6 @@ class ftp_test(unittest.TestCase):
             logging.error("进向sa:共有{}个字段，有{}个字段出错".format(all_params, (all_params - pass_params)))
             assert False
 
+# if __name__ == '__main__':
+# if a[i][j].isdigit():
+#     sign = int_data_sort(a[i][j])
